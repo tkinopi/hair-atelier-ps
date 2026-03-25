@@ -1,79 +1,99 @@
+import ContactForm from './ContactForm';
+
 export const metadata = {
   title: "Contact | P's -hair atelier-",
 };
 
 export default function ContactPage() {
   return (
-    <div className="max-w-2xl mx-auto px-6 md:px-12 py-16">
-
-      {/* Page heading */}
-      <div className="flex items-center gap-5 mb-10">
-        <div className="border-2 border-[#111] px-3 py-2 shadow-[2px_2px_0_#111] font-[family-name:var(--font-display)] text-xl leading-none">
-          P<span className="text-[#e91e8c]">★</span>s
-        </div>
-        <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl tracking-[0.15em]">
-          CONTACT
+    <>
+      {/* ── Page Header ── */}
+      <section style={{
+        background: '#111111', padding: '100px 48px 80px',
+        textAlign: 'center',
+      }}>
+        <p style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: '0.72rem', letterSpacing: '0.28em',
+          color: '#e91e8c', marginBottom: '20px', textTransform: 'uppercase',
+        }}>
+          Get in Touch
+        </p>
+        <h1 style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 'clamp(2.8rem, 6vw, 5rem)',
+          fontWeight: 300, letterSpacing: '0.08em', color: '#ffffff', lineHeight: 1,
+        }}>
+          Contact
         </h1>
-      </div>
+      </section>
 
-      <p className="font-[family-name:var(--font-serif)] text-sm text-[#555] leading-[2] mb-10">
-        ご予約・お問い合わせはお電話またはメールにてお気軽にどうぞ。<br />
-        TEL：<strong className="text-[#111]">03-6411-4501</strong><br />
-        MAIL：<a href="mailto:info@ps-room.com" className="text-[#e91e8c] hover:underline">info@ps-room.com</a>
-      </p>
+      {/* ── Contact Content ── */}
+      <section style={{ background: '#ffffff', padding: '80px 48px' }}>
+        <div style={{ maxWidth: '680px', margin: '0 auto' }}>
 
-      <form className="space-y-5">
-        {[
-          { label: 'お名前', id: 'name',  type: 'text',  placeholder: '山田 花子',           required: true },
-          { label: 'メールアドレス', id: 'email', type: 'email', placeholder: 'example@email.com', required: true },
-          { label: 'お電話番号', id: 'tel', type: 'tel', placeholder: '090-0000-0000', required: false },
-        ].map(({ label, id, type, placeholder, required }) => (
-          <div key={id}>
-            <label htmlFor={id} className="block text-xs tracking-wider text-[#555] mb-2">
-              {label}
-              {required && <span className="text-[#e91e8c] ml-1 text-[10px]">必須</span>}
-            </label>
-            <input
-              id={id}
-              type={type}
-              placeholder={placeholder}
-              className="w-full border border-[#ccc] px-4 py-3 text-sm focus:outline-none focus:border-[#e91e8c] bg-white"
-            />
+          {/* Direct Contact */}
+          <div style={{
+            display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px',
+            background: '#ebebeb', marginBottom: '64px',
+          }}>
+            {[
+              { label: 'TEL', value: '03-6411-4501', note: '営業時間内にお電話ください' },
+              { label: 'MAIL', value: 'info@ps-room.com', note: '2〜3営業日以内にご返信します' },
+            ].map(({ label, value, note }) => (
+              <div key={label} style={{ background: '#ffffff', padding: '36px 32px' }}>
+                <p style={{
+                  fontSize: '0.65rem', letterSpacing: '0.2em',
+                  color: '#aaaaaa', marginBottom: '10px',
+                }}>
+                  {label}
+                </p>
+                <p style={{
+                  fontSize: '1rem', color: '#111111', marginBottom: '8px',
+                  fontFamily: "'Cormorant Garamond', serif", letterSpacing: '0.06em',
+                }}>
+                  {value}
+                </p>
+                <p style={{ fontSize: '0.72rem', color: '#aaaaaa' }}>{note}</p>
+              </div>
+            ))}
           </div>
-        ))}
 
-        <div>
-          <label htmlFor="menu" className="block text-xs tracking-wider text-[#555] mb-2">ご希望メニュー</label>
-          <select
-            id="menu"
-            className="w-full border border-[#ccc] px-4 py-3 text-sm focus:outline-none focus:border-[#e91e8c] bg-white appearance-none"
-          >
-            <option value="">選択してください</option>
-            <option>カット</option>
-            <option>カラー</option>
-            <option>パーマ</option>
-            <option>縮毛矯正 / 髪質改善</option>
-            <option>その他</option>
-          </select>
+          {/* Reservation CTA */}
+          <div style={{
+            background: '#f8f7f5', padding: '48px 40px',
+            textAlign: 'center', marginBottom: '64px',
+            borderTop: '2px solid #e91e8c',
+          }}>
+            <p style={{
+              fontFamily: "'Noto Serif JP', serif",
+              fontSize: '1rem', color: '#111111', marginBottom: '8px', fontWeight: 300,
+            }}>
+              ご予約はホットペッパービューティーから
+            </p>
+            <p style={{ fontSize: '0.78rem', color: '#888888', marginBottom: '28px' }}>
+              24時間いつでもご予約いただけます
+            </p>
+            <a
+              href="https://beauty.hotpepper.jp/slnH000572344/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-block',
+                background: '#e91e8c', color: '#ffffff',
+                padding: '14px 48px',
+                fontSize: '0.78rem', letterSpacing: '0.1em',
+                textDecoration: 'none',
+              }}
+            >
+              予約する
+            </a>
+          </div>
+
+          {/* Contact Form (Client Component) */}
+          <ContactForm />
         </div>
-
-        <div>
-          <label htmlFor="message" className="block text-xs tracking-wider text-[#555] mb-2">ご希望日時・メッセージ</label>
-          <textarea
-            id="message"
-            rows={5}
-            placeholder="ご希望の日時やご要望などをご記入ください"
-            className="w-full border border-[#ccc] px-4 py-3 text-sm focus:outline-none focus:border-[#e91e8c] bg-white resize-y"
-          />
-        </div>
-
-        <button
-          type="submit"
-          className="w-full bg-[#111] text-white py-4 text-sm tracking-widest hover:bg-[#e91e8c] transition-colors mt-2"
-        >
-          送信する
-        </button>
-      </form>
-    </div>
+      </section>
+    </>
   );
 }

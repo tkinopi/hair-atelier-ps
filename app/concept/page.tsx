@@ -1,77 +1,143 @@
-import Image from 'next/image';
-
 export const metadata = {
   title: "Concept | P's -hair atelier-",
 };
 
 export default function ConceptPage() {
   return (
-    <div className="max-w-4xl mx-auto px-6 md:px-12 py-16">
-
-      {/* Page heading */}
-      <div className="flex items-center gap-5 mb-14">
-        <div className="border-2 border-[#111] px-3 py-2 shadow-[2px_2px_0_#111] font-[family-name:var(--font-display)] text-xl leading-none">
-          P<span className="text-[#e91e8c]">★</span>s
-        </div>
-        <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl tracking-[0.15em]">
-          CONCEPT
+    <>
+      {/* ── Page Header ── */}
+      <section style={{
+        background: '#111111', padding: '100px 48px 80px',
+        textAlign: 'center',
+      }}>
+        <p style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: '0.72rem', letterSpacing: '0.28em',
+          color: '#e91e8c', marginBottom: '20px', textTransform: 'uppercase',
+        }}>
+          Our Story
+        </p>
+        <h1 style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: 'clamp(2.8rem, 6vw, 5rem)',
+          fontWeight: 300, letterSpacing: '0.08em', color: '#ffffff', lineHeight: 1,
+        }}>
+          Concept
         </h1>
-      </div>
+      </section>
 
-      {/* Main grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      {/* ── Main Content ── */}
+      <section style={{ background: '#ffffff', padding: '100px 48px' }}>
+        <div style={{
+          maxWidth: '1000px', margin: '0 auto',
+          display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px',
+          alignItems: 'start',
+        }}>
+          {/* Image */}
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=700&q=80"
+              alt="サロン内観"
+              style={{
+                width: '100%', aspectRatio: '3/4', objectFit: 'cover',
+                display: 'block',
+              }}
+            />
+          </div>
 
-        {/* Ornate text frame */}
-        <div className="ornate-frame">
-          <div className="corner-tr" />
-          <div className="corner-bl" />
-          <p className="font-[family-name:var(--font-serif)] text-base text-center leading-[2.6]">
-            ピースの語源は&quot;piece=かけら&quot;。<br /><br />
-            小さなpieceが集まり、<br />
-            素敵なpieceが出来ていく。<br /><br />
-            そんなたくさんの出会いが<br />
-            生まれる空間にしたい。<br /><br />
-            そういう想いも込めて誕生した<br />
-            アットホームなヘアアトリエ。
+          {/* Text */}
+          <div style={{ paddingTop: '20px' }}>
+            <p style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontSize: '0.7rem', letterSpacing: '0.28em',
+              color: '#e91e8c', marginBottom: '24px', textTransform: 'uppercase',
+            }}>
+              piece = かけら
+            </p>
+            <h2 style={{
+              fontFamily: "'Noto Serif JP', 'Yu Mincho', serif",
+              fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)',
+              fontWeight: 300, lineHeight: 1.8, color: '#111111',
+              marginBottom: '32px', letterSpacing: '0.04em',
+            }}>
+              それぞれの「かけら」が<br />
+              集まる場所
+            </h2>
+
+            <div style={{
+              width: '32px', height: '1px', background: '#e91e8c', marginBottom: '32px',
+            }} />
+
+            <p style={{
+              fontFamily: "'Noto Serif JP', 'Yu Mincho', serif",
+              fontSize: '0.9rem', lineHeight: 2.4, color: '#555555',
+              marginBottom: '28px',
+            }}>
+              「piece＝かけら」というサロン名に込めた想いは、
+              お客様一人ひとりの個性という「かけら」が集まり、
+              輝く空間を作りたいという思いから生まれました。
+            </p>
+            <p style={{
+              fontFamily: "'Noto Serif JP', 'Yu Mincho', serif",
+              fontSize: '0.9rem', lineHeight: 2.4, color: '#555555',
+              marginBottom: '28px',
+            }}>
+              白さのないpieceが集まり、素敵な空間が生まれていく。
+              そんな場所を目指し、No.1アットホームなヘアアトリエとして
+              お客様の魅力を最大限に引き出すヘアスタイルをご提案します。
+            </p>
+            <p style={{
+              fontFamily: "'Noto Serif JP', 'Yu Mincho', serif",
+              fontSize: '0.9rem', lineHeight: 2.4, color: '#555555',
+            }}>
+              オシャレにプラスな気持ちで頑張れるよう応援し、
+              キラキラした素敵なヘアスタイルを提供します。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Salon Info ── */}
+      <section style={{ background: '#f8f7f5', padding: '80px 48px' }}>
+        <div style={{ maxWidth: '700px', margin: '0 auto' }}>
+          <p style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: '0.72rem', letterSpacing: '0.28em',
+            color: '#e91e8c', marginBottom: '40px', textTransform: 'uppercase',
+          }}>
+            Salon Information
           </p>
-        </div>
 
-        {/* Photo */}
-        <div className="relative aspect-[4/3] border border-[#ccc] overflow-hidden">
-          <Image
-            src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=800&q=80"
-            alt="サロン内観"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-[6px] border border-black/10 pointer-events-none z-10" />
-        </div>
-      </div>
-
-      {/* Info block */}
-      <div className="mt-14 pt-10 border-t border-[#e0ddd8]">
-        <h2 className="font-[family-name:var(--font-display)] text-base tracking-[0.2em] mb-5">
-          SALON INFO
-        </h2>
-        <div className="divide-y divide-[#e0ddd8]">
           {[
-            { label: 'ADD',   value: '〒150-0002 渋谷区渋谷1-22-10 TBミヤシタビル4F' },
-            { label: 'TEL',   value: '03-6411-4501' },
-            { label: 'MAIL',  value: 'info@ps-room.com', href: 'mailto:info@ps-room.com' },
-            { label: 'OPEN',  value: 'Weekday　12:00 - 22:00\nSat　　　11:00 - 21:00\nSun　　　11:00 - 20:00' },
-            { label: 'CLOSE', value: '不定休' },
-          ].map(({ label, value, href }) => (
-            <div key={label} className="flex py-3 text-sm gap-4">
-              <span className="w-16 text-[#888] shrink-0">{label}</span>
-              <span className="text-[#111] whitespace-pre-line">
-                {href ? (
-                  <a href={href} className="text-[#e91e8c] hover:underline">{value}</a>
-                ) : value}
+            { label: 'サロン名', value: "P's -hair atelier-（ピース）" },
+            { label: '住所', value: '〒150-0002 東京都渋谷区渋谷1-22-10 TBミヤシタビル4F' },
+            { label: 'TEL', value: '03-6411-4501' },
+            { label: 'MAIL', value: 'info@ps-room.com' },
+            { label: '営業時間', value: 'Weekday  12:00〜22:00\nSat  11:00〜21:00\nSun  11:00〜20:00' },
+            { label: '定休日', value: '不定休' },
+          ].map(({ label, value }, i) => (
+            <div key={i} style={{
+              display: 'grid', gridTemplateColumns: '120px 1fr',
+              padding: '20px 0',
+              borderBottom: '1px solid #e8e8e8',
+              gap: '24px',
+            }}>
+              <span style={{
+                fontSize: '0.72rem', letterSpacing: '0.08em',
+                color: '#aaaaaa', paddingTop: '2px',
+              }}>
+                {label}
+              </span>
+              <span style={{
+                fontSize: '0.88rem', color: '#333333',
+                lineHeight: 1.9, whiteSpace: 'pre-line',
+              }}>
+                {value}
               </span>
             </div>
           ))}
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }
