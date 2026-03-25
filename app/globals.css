@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  --pink: #e91e8c;
+  --pink-hover: #c4177a;
+  --ink: #111111;
+  --off-white: #f9f8f6;
+  --muted: #888888;
+  --border: #e0ddd8;
+  --font-display: 'Special Elite', Georgia, serif;
+  --font-serif: 'Noto Serif JP', 'Yu Mincho', '游明朝', Georgia, serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #fff;
+  color: #111;
+  font-family: 'Helvetica Neue', 'Hiragino Kaku Gothic ProN', 'メイリオ', sans-serif;
+  line-height: 1.8;
+}
+
+/* Ornate corner frame */
+.ornate-frame {
+  position: relative;
+  padding: 36px 32px;
+  background: #f9f8f6;
+  border: 1px solid #ccc;
+}
+.ornate-frame::before,
+.ornate-frame::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: #111;
+  border-style: solid;
+}
+.ornate-frame::before { top: 7px; left: 7px; border-width: 2px 0 0 2px; }
+.ornate-frame::after  { bottom: 7px; right: 7px; border-width: 0 2px 2px 0; }
+.corner-tr {
+  position: absolute;
+  top: 7px; right: 7px;
+  width: 18px; height: 18px;
+  border-top: 2px solid #111;
+  border-right: 2px solid #111;
+}
+.corner-bl {
+  position: absolute;
+  bottom: 7px; left: 7px;
+  width: 18px; height: 18px;
+  border-bottom: 2px solid #111;
+  border-left: 2px solid #111;
+}
